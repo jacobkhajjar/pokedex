@@ -1,6 +1,6 @@
 import type { State } from "./state.js";
 
-export function startREPL(state: State) {
+export async function startREPL(state: State) {
   const rl = state.rl;
   const commands = state.commands;
 
@@ -25,9 +25,9 @@ export function startREPL(state: State) {
     }
 
     try {
-      cmd.callback(state);
+      await cmd.callback(state);
     } catch (e) {
-      console.log(e);
+      console.log((e as Error).message);
     }
 
     rl.prompt();
