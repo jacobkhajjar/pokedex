@@ -1,12 +1,14 @@
+// @ts-nocheck
+
 {
   "compilerOptions": {
     "baseUrl": ".",
     "target": "esnext",
-    "module": "esnext",
+    "module": "Node16",
     "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node16",
     "esModuleInterop": true,
     "skipLibCheck": true,
   },
