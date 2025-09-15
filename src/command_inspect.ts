@@ -1,5 +1,4 @@
 import type { State } from "./state.js";
-import type { Pokemon } from "./pokeapi.js";
 
 export async function commandInspect(state:State, ...args: string[]) {
     if (args.length !== 1) {
