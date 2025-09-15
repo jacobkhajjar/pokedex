@@ -13,19 +13,19 @@ export type State = {
 export type CLICommand = {
   name: string;
   description: string;
-  callback: (state: State) => Promise<void>;
+  callback: (state: State, ...args: string[]) => Promise<void>;
 };
 
-export function initState(): State {
+export function initState(cacheInterval: number): State {
     const rl = createInterface({
         input: process.stdin,
         output: process.stdout,
         prompt: "Pokedex > ",
     });
 
-    const commands = getCommands();
-
-    const pokeAPI = new PokeAPI()
-
-    return {rl: rl, commands: commands, pokeAPI: pokeAPI};
+    return {
+        rl: rl,
+        commands: getCommands(),
+        pokeAPI: new PokeAPI(cacheInterval)
+    }
 }
